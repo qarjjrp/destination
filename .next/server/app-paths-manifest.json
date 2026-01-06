@@ -2,9 +2,9 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/401/route": "app/401/route.js",
   "/402/route": "app/402/route.js",
-  "/403/route": "app/403/route.js",
-  "/404/route": "app/404/route.js",
-  "/health/route": "app/health/route.js",
   "/[slug]/route": "app/[slug]/route.js",
+  "/403/route": "app/403/route.js",
+  "/health/route": "app/health/route.js",
+  "/404/route": "app/404/route.js",
   "/page": "app/page.js"
 }

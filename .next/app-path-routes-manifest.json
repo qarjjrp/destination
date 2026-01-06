@@ -2,9 +2,9 @@
   "/_not-found/page": "/_not-found",
   "/401/route": "/401",
   "/402/route": "/402",
-  "/403/route": "/403",
-  "/404/route": "/404",
-  "/health/route": "/health",
   "/[slug]/route": "/[slug]",
+  "/403/route": "/403",
+  "/health/route": "/health",
+  "/404/route": "/404",
   "/page": "/"
 }

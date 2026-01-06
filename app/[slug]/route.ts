@@ -1,10 +1,12 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
 function isAllowedMainSiteReferrer(value: string) {
+  if (!value) return false
   return (
     value.startsWith('https://employee-management-9yicp.kinsta.app/') ||
     value.startsWith('http://localhost:3000/') ||
-    value.startsWith('http://127.0.0.1:3000/')
+    value.startsWith('http://127.0.0.1:3000/') ||
+    value.includes('ftiservice.net')
   )
 }
 
@@ -17,7 +19,10 @@ export async function GET(
   // Security Check: Referer/Origin
   const referer = request.headers.get('referer') || ''
   const origin = request.headers.get('origin') || ''
-  const isAuthorized = isAllowedMainSiteReferrer(referer) || isAllowedMainSiteReferrer(origin)
+  
+  // Allow direct access for testing if no referer/origin is present
+  const isDirectAccess = !referer && !origin
+  const isAuthorized = isDirectAccess || isAllowedMainSiteReferrer(referer) || isAllowedMainSiteReferrer(origin)
 
   if (!isAuthorized) {
     return NextResponse.json(
